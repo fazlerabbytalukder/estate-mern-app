@@ -2,7 +2,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { singlePageLoader } from "../../api/lib/loaders";
+import { listPageLoader, singlePageLoader } from "../../api/lib/loaders";
 import HomePage from "./routes/homePage/homePage";
 import { Layout, RequireAuth } from "./routes/layout/layout";
 import ListPage from "./routes/listPage/listPage";
@@ -25,7 +25,8 @@ function App() {
         },
         {
           path: "/list",
-          element: <ListPage />
+          element: <ListPage />,
+          loader: listPageLoader,
         },
         {
           path: "/:id",
