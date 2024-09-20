@@ -14,3 +14,12 @@ export const listPageLoader = async ({ request, params }) => {
     });
     // return res.data;
 };
+
+export const profilePageLoader = async () => {
+    const postPromise = apiRequest("/users/profilePosts");
+    // const chatPromise = apiRequest("/chats");
+    return defer({
+        postResponse: postPromise,
+        //   chatResponse: chatPromise,
+    });
+};

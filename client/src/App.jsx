@@ -2,7 +2,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { listPageLoader, singlePageLoader } from "../../api/lib/loaders";
+import { listPageLoader, profilePageLoader, singlePageLoader } from "../../api/lib/loaders";
 import HomePage from "./routes/homePage/homePage";
 import { Layout, RequireAuth } from "./routes/layout/layout";
 import ListPage from "./routes/listPage/listPage";
@@ -49,7 +49,8 @@ function App() {
       children: [
         {
           path: "/profile",
-          element: <ProfilePage />
+          element: <ProfilePage />,
+          loader: profilePageLoader,
         },
         {
           path: "/profile/update",
